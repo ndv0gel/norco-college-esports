@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Container, Row, Col } from 'react-bootstrap';
+import HomeBottomCta from '@/components/HomeBottomCta';
 import { games, news, events } from '@/lib/siteData';
 
 /* ── Home page ────────────────────────────────────────────── */
@@ -236,6 +237,8 @@ export default function Home() {
           </Row>
         </Container>
       </section>
+
+      <HomeBottomCta />
 
     </main>
   );

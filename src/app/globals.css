@@ -29,6 +29,7 @@ body {
   background-color: var(--nc-dark-bg);
   color: var(--nc-white);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  overflow-x: hidden;
 }
 
 html {
@@ -41,7 +42,7 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  overscroll-behavior-x: none;
 }
 
 .page-main {
@@ -103,6 +104,13 @@ body {
 }
 
 @media (max-width: 991.98px) {
+  .nc-navbar,
+  .nc-navbar .container,
+  .nc-navbar-collapse {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   .nc-navbar-collapse {
     margin-top: 0.65rem;
     background: linear-gradient(160deg, rgba(50, 4, 13, 0.98), rgba(35, 17, 23, 0.97));
@@ -116,10 +124,16 @@ body {
     margin-left: 0 !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
     align-items: center !important;
     gap: 0.4rem !important;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     overflow-x: auto;
     overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
     padding: 0.1rem 0.1rem 0.3rem;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;

@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
 import Footer from '@/components/Footer';
-import HomeBottomCta from '@/components/HomeBottomCta';
 import NavBar from '@/components/NavBar';
 
 export const metadata: Metadata = {
@@ -21,7 +20,6 @@ export default function RootLayout({
         <NavBar />
         {children}
         <Footer />
-        <HomeBottomCta />
       </body>
     </html>
   );
