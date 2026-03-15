@@ -33,12 +33,48 @@ const news = [
   },
 ];
 
-const events = [
-  { month: 'Mar', day: '20', title: 'Spring Kick-Off LAN Party', detail: 'Student Center — 3 PM' },
-  { month: 'Apr', day: '5', title: 'Valorant Open Tournament', detail: 'Online — 6 PM' },
-  { month: 'Apr', day: '19', title: 'CCCAA Regional Qualifier', detail: 'Live Stream + On-Campus' },
-  { month: 'May', day: '3', title: 'End-of-Semester Celebration', detail: 'Gaming Lab — 5 PM' },
+const currentYear = new Date().getFullYear();
+
+const allEvents = [
+  {
+    month: 'Mar',
+    day: '20',
+    year: currentYear,
+    title: 'Spring Kick-Off LAN Party',
+    detail: 'Student Center — 3 PM',
+    dateObj: new Date(currentYear, 2, 20),
+  },
+  {
+    month: 'Apr',
+    day: '5',
+    year: currentYear,
+    title: 'Valorant Open Tournament',
+    detail: 'Online — 6 PM',
+    dateObj: new Date(currentYear, 3, 5),
+  },
+  {
+    month: 'Apr',
+    day: '19',
+    year: currentYear,
+    title: 'CCCAA Regional Qualifier',
+    detail: 'Live Stream + On-Campus',
+    dateObj: new Date(currentYear, 3, 19),
+  },
+  {
+    month: 'May',
+    day: '3',
+    year: currentYear,
+    title: 'End-of-Semester Celebration',
+    detail: 'Gaming Lab — 5 PM',
+    dateObj: new Date(currentYear, 4, 3),
+  },
 ];
+
+/** Show upcoming events first, then fall back to showing the closest past events. */
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+const upcoming = allEvents.filter((e) => e.dateObj >= today);
+const events = upcoming.length > 0 ? upcoming : allEvents.slice(-4);
 
 const aboutFeatures = [
   {
