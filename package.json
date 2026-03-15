@@ -6,9 +6,12 @@
     "dev": "next dev",
     "dev-https": "next dev --experimental-https",
     "build": "next build",
+    "vercel-build": "sh ./scripts/vercel-build.sh",
+    "db:migrate:deploy": "prisma migrate deploy",
     "start": "next start",
     "lint": "next lint",
-    "playwright-development": "npx playwright test"
+    "playwright-development": "npx playwright test",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.6.0",
