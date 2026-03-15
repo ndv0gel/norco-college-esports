@@ -72,10 +72,10 @@ const NavBar = () => {
           <Nav className="ms-auto" style={{ gap: '0.25rem', alignItems: 'center' }}>
             {[
               { label: 'Home', href: '/' },
-              { label: 'Games', href: '#games' },
-              { label: 'News', href: '#news' },
-              { label: 'Events', href: '#events' },
-              { label: 'About', href: '#about' },
+              { label: 'Games', href: '/games' },
+              { label: 'News', href: '/news' },
+              { label: 'Events', href: '/events' },
+              { label: 'About', href: '/about' },
             ].map(({ label, href }) => (
               <Nav.Link
                 key={label}

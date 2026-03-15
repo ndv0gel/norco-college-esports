@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Col, Container, Row } from 'react-bootstrap';
 
 const Footer = () => (
@@ -59,10 +60,16 @@ const Footer = () => (
           >
             Quick Links
           </h6>
-          {['Home', 'Games', 'Events', 'News', 'About'].map((link) => (
-            <a
-              key={link}
-              href={link === 'Home' ? '/' : `#${link.toLowerCase()}`}
+          {[
+            { label: 'Home', href: '/' },
+            { label: 'Games', href: '/games' },
+            { label: 'Events', href: '/events' },
+            { label: 'News', href: '/news' },
+            { label: 'About', href: '/about' },
+          ].map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
               style={{
                 display: 'block',
                 color: 'rgba(255,255,255,0.6)',
@@ -71,8 +78,8 @@ const Footer = () => (
                 textDecoration: 'none',
               }}
             >
-              {link}
-            </a>
+              {link.label}
+            </Link>
           ))}
         </Col>
 

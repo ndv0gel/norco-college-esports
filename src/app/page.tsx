@@ -1,103 +1,6 @@
 import Link from 'next/link';
 import { Container, Row, Col } from 'react-bootstrap';
-
-/* ── Data ─────────────────────────────────────────────────── */
-
-const games = [
-  { emoji: '⚔️', title: 'League of Legends', players: '12 players', status: 'Active' },
-  { emoji: '🔫', title: 'Valorant', players: '10 players', status: 'Active' },
-  { emoji: '🚀', title: 'Rocket League', players: '6 players', status: 'Active' },
-  { emoji: '🛡️', title: 'Overwatch 2', players: '12 players', status: 'Forming' },
-  { emoji: '🥊', title: 'Street Fighter 6', players: '4 players', status: 'Active' },
-  { emoji: '🎮', title: 'Super Smash Bros.', players: '8 players', status: 'Forming' },
-];
-
-const news = [
-  {
-    emoji: '🏆',
-    category: 'Tournament',
-    title: 'Knights advance to CCCAA Regional Finals in League of Legends',
-    date: 'Mar 10, 2026',
-  },
-  {
-    emoji: '📢',
-    category: 'Announcement',
-    title: 'Spring 2026 tryouts now open — all skill levels welcome',
-    date: 'Mar 3, 2026',
-  },
-  {
-    emoji: '🎉',
-    category: 'Highlight',
-    title: 'Valorant squad wins intra-college invitational, goes 5-0',
-    date: 'Feb 24, 2026',
-  },
-];
-
-const currentYear = new Date().getFullYear();
-
-const allEvents = [
-  {
-    month: 'Mar',
-    day: '20',
-    year: currentYear,
-    title: 'Spring Kick-Off LAN Party',
-    detail: 'Student Center — 3 PM',
-    dateObj: new Date(currentYear, 2, 20),
-  },
-  {
-    month: 'Apr',
-    day: '5',
-    year: currentYear,
-    title: 'Valorant Open Tournament',
-    detail: 'Online — 6 PM',
-    dateObj: new Date(currentYear, 3, 5),
-  },
-  {
-    month: 'Apr',
-    day: '19',
-    year: currentYear,
-    title: 'CCCAA Regional Qualifier',
-    detail: 'Live Stream + On-Campus',
-    dateObj: new Date(currentYear, 3, 19),
-  },
-  {
-    month: 'May',
-    day: '3',
-    year: currentYear,
-    title: 'End-of-Semester Celebration',
-    detail: 'Gaming Lab — 5 PM',
-    dateObj: new Date(currentYear, 4, 3),
-  },
-];
-
-/** Show upcoming events first, then fall back to showing the closest past events. */
-const today = new Date();
-today.setHours(0, 0, 0, 0);
-const upcoming = allEvents.filter((e) => e.dateObj >= today);
-const events = upcoming.length > 0 ? upcoming : allEvents.slice(-4);
-
-const aboutFeatures = [
-  {
-    emoji: '🏅',
-    title: 'Competitive Teams',
-    desc: 'Represent Norco College in collegiate leagues and invitational tournaments.',
-  },
-  {
-    emoji: '📡',
-    title: 'Live Streaming',
-    desc: 'Watch and broadcast matches through our official channels.',
-  },
-  {
-    emoji: '🤝',
-    title: 'Community Events',
-    desc: 'LAN parties, casual brackets, and campus gaming nights for everyone.',
-  },
-  {
-    emoji: '📚',
-    title: 'Scholarships',
-    desc: 'Explore esports scholarship opportunities available to student athletes.',
-  },
-];
+import { games, news, events } from '@/lib/siteData';
 
 /* ── Home page ────────────────────────────────────────────── */
 
@@ -113,9 +16,7 @@ export default function Home() {
             {/* Left copy */}
             <Col lg={7} className="py-5">
               <div className="hero-badge mb-3">
-                <span>⚡</span>
-                {' '}
-                Norco College Knights — Est. 2024
+                Norco College Knights Program
               </div>
 
               <h1 className="hero-title mb-3">
@@ -134,9 +35,7 @@ export default function Home() {
                 <Link href="/student" className="hero-cta-primary btn">
                   Join the Team
                 </Link>
-                <a href="#games" className="hero-cta-secondary btn btn-outline-light">
-                  Explore Games
-                </a>
+                <Link href="/games" className="hero-cta-secondary btn btn-outline-light">Explore Games</Link>
               </div>
 
               {/* Stats row */}
@@ -161,12 +60,11 @@ export default function Home() {
                 className="hero-visual-card p-4 text-center"
                 style={{ width: '100%', maxWidth: 360 }}
               >
-                <div style={{ fontSize: '5rem', marginBottom: '1rem' }}>🎮</div>
                 <h3 style={{ color: 'var(--nc-gold)', fontWeight: 800, marginBottom: '0.5rem' }}>
                   Knights Esports
                 </h3>
                 <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-                  Norco, CA · CCCAA Affiliated
+                  Norco, CA | CCCAA Affiliated
                 </p>
                 <div
                   style={{
@@ -193,34 +91,55 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* ── FEATURED GAMES ───────────────────────────────── */}
-      <section className="section-dark" id="games">
+      {/* ── PAGE NAVIGATION ───────────────────────────────── */}
+      <section className="section-dark">
         <Container>
           <div className="mb-5">
-            <span className="section-label">Our Programs</span>
+            <span className="section-label">Site Sections</span>
             <div className="gold-divider" />
             <h2 className="section-title">
-              Featured
+              Explore
               {' '}
-              <span className="gold-text">Games</span>
+              <span className="gold-text">By Page</span>
             </h2>
             <p style={{ color: 'var(--nc-text-muted)', maxWidth: 520, fontSize: '0.95rem' }}>
-              We field competitive rosters across a variety of titles.
-              Whether you&apos;re a casual fan or a ranked grinder, there&apos;s a spot for you.
+              The site now uses dedicated pages for games, news, events, and program information.
             </p>
           </div>
 
           <Row className="g-3">
-            {games.map(({ emoji, title, players, status }) => (
-              <Col key={title} xs={12} sm={6} md={4}>
+            {[
+              {
+                title: 'Games',
+                href: '/games',
+                summary: 'Explore active rosters, recruiting status, and program focus by title.',
+              },
+              {
+                title: 'News',
+                href: '/news',
+                summary: 'Read tournament highlights, announcements, and weekly updates.',
+              },
+              {
+                title: 'Events',
+                href: '/events',
+                summary: 'Track upcoming events, qualifiers, and campus activity dates.',
+              },
+              {
+                title: 'About',
+                href: '/about',
+                summary: 'Learn about the mission, community, and student opportunities.',
+              },
+            ].map(({ title, href, summary }) => (
+              <Col key={title} xs={12} sm={6}>
                 <div className="game-card">
-                  <div className="game-card-icon">{emoji}</div>
                   <div className="game-card-body">
-                    <div className="d-flex justify-content-between align-items-start mb-1">
-                      <p className="game-card-title mb-0">{title}</p>
-                      <span className="game-card-badge">{status}</span>
-                    </div>
-                    <p className="game-card-meta mb-0">{players}</p>
+                    <p className="game-card-title mb-2">{title}</p>
+                    <p className="game-card-meta mb-3" style={{ lineHeight: 1.6 }}>{summary}</p>
+                    <Link href={href} className="btn-outline-gold btn btn-sm">
+                      Open
+                      {' '}
+                      {title}
+                    </Link>
                   </div>
                 </div>
               </Col>
@@ -229,153 +148,90 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* ── NEWS & EVENTS ────────────────────────────────── */}
+      {/* ── SNAPSHOT ─────────────────────────────────────── */}
       <section className="section-navy" id="news">
         <Container>
           <Row className="g-5">
 
-            {/* News column */}
-            <Col lg={7}>
-              <span className="section-label">Latest</span>
+            <Col lg={4}>
+              <span className="section-label">Games</span>
               <div className="gold-divider" />
               <h2 className="section-title mb-4">
-                News &amp;
+                Program
+                {' '}
+                <span className="gold-text">Snapshot</span>
+              </h2>
+
+              <div className="d-flex flex-column gap-3">
+                {games.slice(0, 3).map((game) => (
+                  <div key={game.title} className="news-card">
+                    <div className="news-card-body">
+                      <p className="news-card-category mb-1">{game.status}</p>
+                      <p className="news-card-title mb-1">{game.title}</p>
+                      <p className="news-card-date mb-0">{game.players}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <Link href="/games" className="btn-outline-gold btn mt-4" style={{ fontSize: '0.85rem' }}>
+                View all games
+              </Link>
+            </Col>
+
+            <Col lg={4}>
+              <span className="section-label">News</span>
+              <div className="gold-divider" />
+              <h2 className="section-title mb-4">
+                Recent
                 {' '}
                 <span className="gold-text">Updates</span>
               </h2>
 
-              <div className="d-flex flex-column gap-3">
-                {news.map(({ emoji, category, title, date }) => (
-                  <div key={title} className="news-card d-flex" style={{ flexDirection: 'column' }}>
-                    <div className="d-flex gap-0" style={{ flex: 1 }}>
-                      <div
-                        className="news-card-img d-flex align-items-center justify-content-center"
-                        style={{
-                          minWidth: 90,
-                          width: 90,
-                          height: 'auto',
-                          background: 'linear-gradient(135deg, var(--nc-navy), #004080)',
-                          fontSize: '2rem',
-                        }}
-                      >
-                        {emoji}
-                      </div>
-                      <div className="news-card-body">
-                        <p className="news-card-category mb-1">{category}</p>
-                        <p className="news-card-title">{title}</p>
-                        <p className="news-card-date mb-0">{date}</p>
-                      </div>
+              <div className="d-flex flex-column gap-2">
+                {news.slice(0, 3).map((item) => (
+                  <div key={item.title} className="news-card">
+                    <div className="news-card-body">
+                      <p className="news-card-category mb-1">{item.category}</p>
+                      <p className="news-card-title mb-1">{item.title}</p>
+                      <p className="news-card-date mb-0">{item.date}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <a
-                href="/news"
-                className="btn-outline-gold btn mt-4"
-                style={{ fontSize: '0.85rem' }}
-              >
-                View all news →
-              </a>
+              <Link href="/news" className="btn-outline-gold btn mt-4" style={{ fontSize: '0.85rem' }}>
+                View all news
+              </Link>
             </Col>
 
-            {/* Events column */}
-            <Col lg={5} id="events">
-              <span className="section-label">Schedule</span>
+            <Col lg={4} id="events">
+              <span className="section-label">Events</span>
               <div className="gold-divider" />
               <h2 className="section-title mb-4">
                 Upcoming
                 {' '}
-                <span className="gold-text">Events</span>
+                <span className="gold-text">Calendar</span>
               </h2>
 
               <div className="d-flex flex-column gap-2">
-                {events.map(({ month, day, title, detail }) => (
-                  <div key={title} className="event-item">
+                {events.slice(0, 3).map((item) => (
+                  <div key={item.title} className="event-item">
                     <div className="event-date-box">
-                      <span className="month">{month}</span>
-                      <span className="day">{day}</span>
+                      <span className="month">{item.month}</span>
+                      <span className="day">{item.day}</span>
                     </div>
                     <div>
-                      <p className="event-title mb-0">{title}</p>
-                      <p className="event-meta mb-0">{detail}</p>
+                      <p className="event-title mb-0">{item.title}</p>
+                      <p className="event-meta mb-0">{item.detail}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <a
-                href="/events"
-                className="btn-outline-gold btn mt-4"
-                style={{ fontSize: '0.85rem' }}
-              >
-                Full calendar →
-              </a>
-            </Col>
-
-          </Row>
-        </Container>
-      </section>
-
-      {/* ── ABOUT ────────────────────────────────────────── */}
-      <section className="section-dark" id="about">
-        <Container>
-          <Row className="align-items-center g-5">
-            <Col lg={6}>
-              <span className="section-label">About Us</span>
-              <div className="gold-divider" />
-              <h2 className="section-title mb-3">
-                More Than Just
-                {' '}
-                <span className="gold-text">Gaming</span>
-              </h2>
-              <p
-                style={{
-                  color: 'rgba(255,255,255,0.7)',
-                  fontSize: '0.95rem',
-                  lineHeight: 1.75,
-                  marginBottom: '1rem',
-                }}
-              >
-                Norco College Esports was founded to give students a competitive, community-driven
-                outlet on campus. We partner with the California Community College
-                Athletic Association (CCCAA) and host our own LAN events throughout
-                each semester.
-              </p>
-              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.95rem', lineHeight: 1.75 }}>
-                Whether you want to compete at the varsity level, contribute as a
-                caster or analyst, or simply meet fellow gamers — Knights Esports
-                has a place for you.
-              </p>
-            </Col>
-            <Col lg={6}>
-              <Row className="g-3">
-                {aboutFeatures.map(({ emoji, title, desc }) => (
-                  <Col xs={12} sm={6} key={title}>
-                    <div
-                      style={{
-                        background: 'var(--nc-card-bg)',
-                        border: '1px solid rgba(255,255,255,0.07)',
-                        borderRadius: 10,
-                        padding: '1.25rem',
-                      }}
-                    >
-                      <div style={{ fontSize: '1.6rem', marginBottom: '0.5rem' }}>{emoji}</div>
-                      <p
-                        style={{
-                          color: 'var(--nc-white)',
-                          fontWeight: 700,
-                          fontSize: '0.9rem',
-                          marginBottom: '0.3rem',
-                        }}
-                      >
-                        {title}
-                      </p>
-                      <p style={{ color: 'var(--nc-text-muted)', fontSize: '0.82rem', margin: 0 }}>{desc}</p>
-                    </div>
-                  </Col>
-                ))}
-              </Row>
+              <Link href="/events" className="btn-outline-gold btn mt-4" style={{ fontSize: '0.85rem' }}>
+                View full calendar
+              </Link>
             </Col>
           </Row>
         </Container>
@@ -391,7 +247,7 @@ export default function Home() {
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.65)', maxWidth: 520, margin: '0 auto 2rem', fontSize: '1rem' }}>
             Register today and become part of the Norco College Esports family.
-            Spots are limited — all skill levels are welcome.
+            Spots are limited. All skill levels are welcome.
           </p>
           <div className="d-flex justify-content-center gap-3 flex-wrap">
             <Link
@@ -408,7 +264,7 @@ export default function Home() {
               className="btn-outline-gold btn"
               style={{ padding: '0.75rem 2rem', fontSize: '1rem' }}
             >
-              Norco College ↗
+              Norco College
             </a>
           </div>
         </Container>

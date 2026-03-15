@@ -1,21 +1,22 @@
 :root {
   /* Norco College brand colors */
-  --nc-navy: #002b5c;
-  --nc-navy-dark: #001a3a;
-  --nc-navy-light: #003d80;
-  --nc-gold: #fdb71a;
-  --nc-gold-dark: #d9960a;
-  --nc-gold-light: #ffd060;
+  --nc-navy: #4e0715;
+  --nc-navy-dark: #32040d;
+  --nc-navy-light: #6a1223;
+  --nc-gold: #e0ba71;
+  --nc-gold-dark: #b89458;
+  --nc-gold-light: #f0d8a4;
+  --nc-highlight: #9e8b6a;
   --nc-white: #ffffff;
   --nc-off-white: #f4f4f4;
-  --nc-dark-bg: #0a0d14;
-  --nc-card-bg: #111827;
-  --nc-text-muted: #9ca3af;
+  --nc-dark-bg: #12080b;
+  --nc-card-bg: #231117;
+  --nc-text-muted: #cabba3;
 
   /* Bootstrap overrides */
   --bs-light-rgb: 236, 236, 236;
-  --bs-primary: #002b5c;
-  --bs-primary-rgb: 0, 43, 92;
+  --bs-primary: #4e0715;
+  --bs-primary-rgb: 78, 7, 21;
 }
 
 html,
@@ -38,7 +39,7 @@ body {
 
 /* ── Hero section ───────────────────────────────────────────── */
 .hero-section {
-  background: linear-gradient(135deg, var(--nc-navy-dark) 0%, var(--nc-navy) 50%, #003d80 100%);
+  background: linear-gradient(135deg, var(--nc-navy-dark) 0%, var(--nc-navy) 50%, var(--nc-navy-light) 100%);
   min-height: 90vh;
   display: flex;
   align-items: center;
@@ -51,8 +52,8 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(253, 183, 26, 0.15) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(0, 61, 128, 0.4) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgba(224, 186, 113, 0.2) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(158, 139, 106, 0.35) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -250,7 +251,7 @@ body {
   width: 100%;
   height: 160px;
   object-fit: cover;
-  background: linear-gradient(135deg, var(--nc-navy), #004080);
+  background: linear-gradient(135deg, var(--nc-navy), var(--nc-navy-light));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -385,7 +386,7 @@ body {
 
 /* ── Sponsors strip ─────────────────────────────────────────── */
 .sponsors-strip {
-  background-color: #0d1117;
+  background-color: #1a0c11;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   padding: 2.5rem 0;
@@ -426,16 +427,16 @@ body {
 /* Form controls */
 .form-control,
 .form-select {
-  background-color: #1c2333 !important;
+  background-color: #2a151b !important;
   border-color: rgba(255, 255, 255, 0.12) !important;
   color: var(--nc-white) !important;
 }
 
 .form-control:focus,
 .form-select:focus {
-  background-color: #1c2333 !important;
+  background-color: #2a151b !important;
   border-color: var(--nc-gold) !important;
-  box-shadow: 0 0 0 0.2rem rgba(253, 183, 26, 0.2) !important;
+  box-shadow: 0 0 0 0.2rem rgba(224, 186, 113, 0.2) !important;
   color: var(--nc-white) !important;
 }
 
@@ -445,7 +446,7 @@ body {
 
 .form-control:disabled,
 .form-select:disabled {
-  background-color: #151d2e !important;
+  background-color: #1d1015 !important;
   color: rgba(255, 255, 255, 0.4) !important;
 }
 
@@ -472,7 +473,7 @@ body {
 
 /* Alert */
 .alert-success {
-  background-color: rgba(0, 43, 92, 0.6) !important;
+  background-color: rgba(78, 7, 21, 0.45) !important;
   border-color: var(--nc-gold) !important;
   color: var(--nc-gold) !important;
 }
@@ -499,7 +500,7 @@ body {
 
 /* ButtonGroup inside form */
 .btn-group.form-control {
-  background-color: #1c2333 !important;
+  background-color: #2a151b !important;
   border-color: rgba(255, 255, 255, 0.12) !important;
   display: flex;
   flex-wrap: wrap;
@@ -510,12 +511,12 @@ body {
 
 /* Multiselect dropdown (multiselect-react-dropdown) */
 .optionContainer {
-  background: #1c2333 !important;
+  background: #2a151b !important;
   border-color: rgba(255, 255, 255, 0.12) !important;
 }
 
 .optionListContainer {
-  background: #1c2333 !important;
+  background: #2a151b !important;
 }
 
 .option {
@@ -532,7 +533,7 @@ body {
 }
 
 .searchWrapper {
-  background-color: #1c2333 !important;
+  background-color: #2a151b !important;
   border-color: rgba(255, 255, 255, 0.12) !important;
   color: var(--nc-white) !important;
 }
