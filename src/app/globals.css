@@ -1,14 +1,547 @@
+:root {
+  /* Norco College brand colors */
+  --nc-navy: #002b5c;
+  --nc-navy-dark: #001a3a;
+  --nc-navy-light: #003d80;
+  --nc-gold: #fdb71a;
+  --nc-gold-dark: #d9960a;
+  --nc-gold-light: #ffd060;
+  --nc-white: #ffffff;
+  --nc-off-white: #f4f4f4;
+  --nc-dark-bg: #0a0d14;
+  --nc-card-bg: #111827;
+  --nc-text-muted: #9ca3af;
+
+  /* Bootstrap overrides */
+  --bs-light-rgb: 236, 236, 236;
+  --bs-primary: #002b5c;
+  --bs-primary-rgb: 0, 43, 92;
+}
+
 html,
 body {
-  --bs-light-rgb: 236, 236, 236;
   box-sizing: border-box;
   height: 100%;
   padding: 0;
   margin: 0;
+  background-color: var(--nc-dark-bg);
+  color: var(--nc-white);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
 }
+
 .wrapper {
   box-sizing: border-box;
   min-height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+/* ── Hero section ───────────────────────────────────────────── */
+.hero-section {
+  background: linear-gradient(135deg, var(--nc-navy-dark) 0%, var(--nc-navy) 50%, #003d80 100%);
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(253, 183, 26, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(0, 61, 128, 0.4) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-tagline {
+  color: var(--nc-gold);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--nc-white);
+}
+
+.hero-title .gold-text {
+  color: var(--nc-gold);
+}
+
+.hero-subtitle {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.15rem;
+  max-width: 540px;
+}
+
+.hero-cta-primary {
+  background-color: var(--nc-gold);
+  border-color: var(--nc-gold);
+  color: var(--nc-navy-dark);
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+.hero-cta-primary:hover {
+  background-color: var(--nc-gold-dark);
+  border-color: var(--nc-gold-dark);
+  color: var(--nc-navy-dark);
+  transform: translateY(-2px);
+}
+
+.hero-cta-secondary {
+  color: var(--nc-white);
+  border-color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.hero-cta-secondary:hover {
+  color: var(--nc-white);
+  border-color: var(--nc-gold);
+  background-color: rgba(253, 183, 26, 0.1);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(253, 183, 26, 0.15);
+  border: 1px solid rgba(253, 183, 26, 0.35);
+  border-radius: 50px;
+  padding: 0.35rem 1rem;
+  font-size: 0.8rem;
+  color: var(--nc-gold);
+  font-weight: 600;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat .stat-number {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--nc-gold);
+  line-height: 1;
+}
+
+.hero-stat .stat-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.hero-visual-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(253, 183, 26, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+/* ── Section styles ─────────────────────────────────────────── */
+.section-dark {
+  background-color: var(--nc-dark-bg);
+  padding: 5rem 0;
+}
+
+.section-navy {
+  background-color: var(--nc-navy-dark);
+  padding: 5rem 0;
+}
+
+.section-label {
+  color: var(--nc-gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  color: var(--nc-white);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.section-title .gold-text {
+  color: var(--nc-gold);
+}
+
+/* ── Game cards ─────────────────────────────────────────────── */
+.game-card {
+  background: var(--nc-card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  height: 100%;
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--nc-gold);
+  box-shadow: 0 8px 30px rgba(253, 183, 26, 0.15);
+}
+
+.game-card-icon {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  background: linear-gradient(135deg, var(--nc-navy-dark), var(--nc-navy));
+}
+
+.game-card-body {
+  padding: 1.25rem;
+}
+
+.game-card-title {
+  color: var(--nc-white);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.game-card-meta {
+  color: var(--nc-text-muted);
+  font-size: 0.8rem;
+}
+
+.game-card-badge {
+  background: rgba(253, 183, 26, 0.15);
+  color: var(--nc-gold);
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+}
+
+/* ── News cards ─────────────────────────────────────────────── */
+.news-card {
+  background: var(--nc-card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 100%;
+}
+
+.news-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.news-card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  background: linear-gradient(135deg, var(--nc-navy), #004080);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+.news-card-body {
+  padding: 1.25rem;
+}
+
+.news-card-category {
+  color: var(--nc-gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.4rem;
+}
+
+.news-card-title {
+  color: var(--nc-white);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.news-card-date {
+  color: var(--nc-text-muted);
+  font-size: 0.75rem;
+}
+
+/* ── Events list ────────────────────────────────────────────── */
+.event-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--nc-card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+
+.event-item:hover {
+  border-color: rgba(253, 183, 26, 0.4);
+}
+
+.event-date-box {
+  min-width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, var(--nc-navy), var(--nc-navy-light));
+  border: 1px solid rgba(253, 183, 26, 0.3);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-date-box .month {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--nc-gold);
+  line-height: 1;
+}
+
+.event-date-box .day {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--nc-white);
+  line-height: 1;
+}
+
+.event-title {
+  color: var(--nc-white);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.event-meta {
+  color: var(--nc-text-muted);
+  font-size: 0.78rem;
+}
+
+/* ── Divider accent ─────────────────────────────────────────── */
+.gold-divider {
+  width: 50px;
+  height: 4px;
+  background: var(--nc-gold);
+  border-radius: 2px;
+  margin: 0.75rem 0 1.5rem;
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.btn-gold {
+  background-color: var(--nc-gold);
+  border-color: var(--nc-gold);
+  color: var(--nc-navy-dark);
+  font-weight: 700;
+  border-radius: 4px;
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+.btn-gold:hover {
+  background-color: var(--nc-gold-dark);
+  border-color: var(--nc-gold-dark);
+  color: var(--nc-navy-dark);
+  transform: translateY(-1px);
+}
+
+.btn-outline-gold {
+  color: var(--nc-gold);
+  border-color: var(--nc-gold);
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-outline-gold:hover {
+  background-color: var(--nc-gold);
+  color: var(--nc-navy-dark);
+}
+
+/* ── Join / CTA banner ──────────────────────────────────────── */
+.cta-banner {
+  background: linear-gradient(135deg, var(--nc-navy) 0%, var(--nc-navy-dark) 100%);
+  border-top: 3px solid var(--nc-gold);
+  padding: 5rem 0;
+}
+
+/* ── Sponsors strip ─────────────────────────────────────────── */
+.sponsors-strip {
+  background-color: #0d1117;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2.5rem 0;
+}
+
+.sponsor-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.sponsor-badge:hover {
+  color: var(--nc-gold);
+  border-color: rgba(253, 183, 26, 0.4);
+}
+
+/* ── Bootstrap dark-theme form overrides ───────────────────── */
+
+/* Card overrides */
+.card {
+  background-color: var(--nc-card-bg) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: var(--nc-white) !important;
+}
+
+.card-body {
+  background-color: var(--nc-card-bg);
+}
+
+/* Form controls */
+.form-control,
+.form-select {
+  background-color: #1c2333 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: var(--nc-white) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #1c2333 !important;
+  border-color: var(--nc-gold) !important;
+  box-shadow: 0 0 0 0.2rem rgba(253, 183, 26, 0.2) !important;
+  color: var(--nc-white) !important;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  background-color: #151d2e !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Labels */
+.form-label {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.form-text {
+  color: var(--nc-text-muted) !important;
+}
+
+/* Check / radio */
+.form-check-label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.form-check-input:checked {
+  background-color: var(--nc-gold) !important;
+  border-color: var(--nc-gold) !important;
+}
+
+/* Alert */
+.alert-success {
+  background-color: rgba(0, 43, 92, 0.6) !important;
+  border-color: var(--nc-gold) !important;
+  color: var(--nc-gold) !important;
+}
+
+.alert-success a {
+  color: var(--nc-gold);
+  font-weight: 700;
+}
+
+/* Primary button */
+.btn-primary {
+  background-color: var(--nc-gold) !important;
+  border-color: var(--nc-gold) !important;
+  color: var(--nc-navy-dark) !important;
+  font-weight: 700;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--nc-gold-dark) !important;
+  border-color: var(--nc-gold-dark) !important;
+  color: var(--nc-navy-dark) !important;
+}
+
+/* ButtonGroup inside form */
+.btn-group.form-control {
+  background-color: #1c2333 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  height: auto;
+  padding: 0.5rem;
+}
+
+/* Multiselect dropdown (multiselect-react-dropdown) */
+.optionContainer {
+  background: #1c2333 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.optionListContainer {
+  background: #1c2333 !important;
+}
+
+.option {
+  color: var(--nc-white) !important;
+}
+
+.option:hover {
+  background: var(--nc-navy) !important;
+}
+
+.chip {
+  background: var(--nc-navy) !important;
+  color: var(--nc-gold) !important;
+}
+
+.searchWrapper {
+  background-color: #1c2333 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: var(--nc-white) !important;
+}
+
+.searchWrapper input {
+  color: var(--nc-white) !important;
+}
+
+/* Navbar toggle icon */
+.navbar-toggler-icon {
+  filter: invert(1);
 }
