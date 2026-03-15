@@ -104,14 +104,8 @@ body {
 }
 
 @media (max-width: 991.98px) {
-  .nc-navbar,
-  .nc-navbar .container,
   .nc-navbar-collapse {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  .nc-navbar-collapse {
+    width: 100%;
     margin-top: 0.65rem;
     background: linear-gradient(160deg, rgba(50, 4, 13, 0.98), rgba(35, 17, 23, 0.97));
     border: 1px solid rgba(224, 186, 113, 0.24);
@@ -122,13 +116,14 @@ body {
 
   .nc-navbar-nav {
     margin-left: 0 !important;
+    display: flex;
     flex-direction: column !important;
     flex-wrap: nowrap !important;
     align-items: stretch !important;
     gap: 0.35rem !important;
     width: 100%;
     max-width: 100%;
-    overflow: hidden;
+    overflow: visible;
     padding: 0;
   }
 

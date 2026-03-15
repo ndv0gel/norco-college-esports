@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Col, Container, Row } from 'react-bootstrap';
 
 const Footer = () => (
-  <footer style={{ backgroundColor: 'var(--nc-navy-dark)', borderTop: '2px solid var(--nc-gold)' }}>
+  <footer className="mt-auto" style={{ backgroundColor: 'var(--nc-navy-dark)', borderTop: '2px solid var(--nc-gold)' }}>
     <Container style={{ paddingTop: '3rem', paddingBottom: '2rem' }}>
       <Row className="g-4">
         {/* Brand column */}
