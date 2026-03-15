@@ -116,51 +116,40 @@ body {
     background: linear-gradient(160deg, rgba(50, 4, 13, 0.98), rgba(35, 17, 23, 0.97));
     border: 1px solid rgba(224, 186, 113, 0.24);
     border-radius: 12px;
-    padding: 0.45rem 0.5rem;
+    padding: 0.55rem;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
   }
 
   .nc-navbar-nav {
     margin-left: 0 !important;
-    flex-direction: row !important;
+    flex-direction: column !important;
     flex-wrap: nowrap !important;
-    justify-content: flex-start !important;
-    align-items: center !important;
-    gap: 0.4rem !important;
+    align-items: stretch !important;
+    gap: 0.35rem !important;
     width: 100%;
     max-width: 100%;
-    min-width: 0;
-    overflow-x: auto;
-    overflow-y: hidden;
-    overscroll-behavior-x: contain;
-    touch-action: pan-x;
-    padding: 0.1rem 0.1rem 0.3rem;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .nc-navbar-nav::-webkit-scrollbar {
-    display: none;
+    overflow: hidden;
+    padding: 0;
   }
 
   .nc-navbar-link,
   .nc-navbar-cta {
-    width: auto;
-    flex: 0 0 auto;
-    white-space: nowrap;
-    border-radius: 999px !important;
+    width: 100%;
+    border-radius: 8px !important;
+    white-space: normal;
+    margin-left: 0 !important;
   }
 
   .nc-navbar-link {
-    padding: 0.5rem 0.9rem !important;
-    font-size: 0.9rem !important;
-    line-height: 1.1;
+    padding: 0.65rem 0.85rem !important;
+    font-size: 0.95rem !important;
+    line-height: 1.2;
   }
 
   .nc-navbar-cta {
-    margin: 0 0 0 0.1rem !important;
-    padding: 0.52rem 1rem !important;
-    font-size: 0.88rem !important;
+    margin: 0.35rem 0 0 !important;
+    padding: 0.7rem 0.85rem !important;
+    font-size: 0.92rem !important;
     text-align: center;
   }
 }

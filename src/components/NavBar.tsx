@@ -80,7 +80,7 @@ const NavBar = () => {
         </Navbar.Toggle>
 
         <Navbar.Collapse id="main-nav" className="nc-navbar-collapse">
-          <Nav className="ms-auto nc-navbar-nav" style={{ gap: '0.25rem', alignItems: 'center' }}>
+          <Nav className="ms-lg-auto nc-navbar-nav" style={{ gap: '0.25rem', alignItems: 'center' }}>
             {[
               { label: 'Home', href: '/' },
               { label: 'Games', href: '/games' },

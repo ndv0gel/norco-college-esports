@@ -18,7 +18,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="h-100 d-flex flex-column min-vh-100">
         <NavBar />
-        {children}
+        <div className="flex-grow-1 d-flex flex-column">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>
