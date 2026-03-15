@@ -21,7 +21,7 @@ const EditStudentPage = async ({ params }: { params: { email: string } }) => {
 
   if (!student.bio) student.bio = '';
   return (
-    <main style={{ backgroundColor: 'var(--nc-dark-bg)', minHeight: '80vh', padding: '3rem 0' }}>
+    <main className="page-main" style={{ padding: '3rem 0' }}>
       <Container>
         <div className="text-center mb-4">
           <span className="section-label">Player Profile</span>
