@@ -4,8 +4,8 @@ import { games } from '@/lib/siteData';
 
 export default function GamesPage() {
   return (
-    <main style={{ backgroundColor: 'var(--nc-dark-bg)', minHeight: '80vh' }}>
-      <section className="section-navy">
+    <main className="page-main">
+      <section className="section-navy page-header-section">
         <Container>
           <span className="section-label">Programs</span>
           <div className="gold-divider" />
@@ -14,14 +14,14 @@ export default function GamesPage() {
             {' '}
             <span className="gold-text">Games</span>
           </h1>
-          <p style={{ color: 'rgba(255,255,255,0.75)', maxWidth: 700, lineHeight: 1.7 }}>
+          <p className="page-subtitle">
             Norco College Esports supports multiple competitive titles and welcomes players across
             experience levels. Active titles are currently competing, while forming titles are recruiting.
           </p>
         </Container>
       </section>
 
-      <section className="section-dark">
+      <section className="section-dark page-content-section">
         <Container>
           <Row className="g-3">
             {games.map((game) => (
@@ -49,7 +49,7 @@ export default function GamesPage() {
             ))}
           </Row>
 
-          <div className="mt-5">
+          <div className="d-flex flex-wrap gap-3 mt-5">
             <Link href="/student" className="btn-gold btn me-3">
               Register as a Player
             </Link>

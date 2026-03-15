@@ -6,7 +6,7 @@ import { games, news, events } from '@/lib/siteData';
 
 export default function Home() {
   return (
-    <main style={{ backgroundColor: 'var(--nc-dark-bg)' }}>
+    <main className="page-main">
 
       {/* ── HERO ─────────────────────────────────────────── */}
       <section className="hero-section" id="home">

@@ -4,8 +4,8 @@ import { aboutFeatures } from '@/lib/siteData';
 
 export default function AboutPage() {
   return (
-    <main style={{ backgroundColor: 'var(--nc-dark-bg)', minHeight: '80vh' }}>
-      <section className="section-navy">
+    <main className="page-main">
+      <section className="section-navy page-header-section">
         <Container>
           <span className="section-label">About Us</span>
           <div className="gold-divider" />
@@ -14,14 +14,14 @@ export default function AboutPage() {
             {' '}
             <span className="gold-text">Esports</span>
           </h1>
-          <p style={{ color: 'rgba(255,255,255,0.75)', maxWidth: 760, lineHeight: 1.7 }}>
+          <p className="page-subtitle">
             Norco College Esports creates a competitive and community-driven environment where
             students can grow as players, leaders, and teammates.
           </p>
         </Container>
       </section>
 
-      <section className="section-dark">
+      <section className="section-dark page-content-section">
         <Container>
           <Row className="align-items-center g-4">
             <Col lg={6}>
@@ -79,7 +79,7 @@ export default function AboutPage() {
             </Col>
           </Row>
 
-          <div className="mt-5">
+          <div className="d-flex flex-wrap gap-3 mt-5">
             <Link href="/student" className="btn-gold btn me-3">Register Today</Link>
             <Link href="/" className="btn-outline-gold btn">Back to Home</Link>
           </div>

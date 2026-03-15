@@ -4,8 +4,8 @@ import { events } from '@/lib/siteData';
 
 export default function EventsPage() {
   return (
-    <main style={{ backgroundColor: 'var(--nc-dark-bg)', minHeight: '80vh' }}>
-      <section className="section-navy">
+    <main className="page-main">
+      <section className="section-navy page-header-section">
         <Container>
           <span className="section-label">Schedule</span>
           <div className="gold-divider" />
@@ -14,13 +14,13 @@ export default function EventsPage() {
             {' '}
             <span className="gold-text">Events</span>
           </h1>
-          <p style={{ color: 'rgba(255,255,255,0.75)', maxWidth: 700, lineHeight: 1.7 }}>
+          <p className="page-subtitle">
             Keep up with LAN nights, tryouts, and competitive tournament dates.
           </p>
         </Container>
       </section>
 
-      <section className="section-dark">
+      <section className="section-dark page-content-section">
         <Container>
           <div className="d-flex flex-column gap-2" style={{ maxWidth: 860 }}>
             {events.map((item) => (
@@ -37,7 +37,7 @@ export default function EventsPage() {
             ))}
           </div>
 
-          <div className="mt-5">
+          <div className="d-flex flex-wrap gap-3 mt-5">
             <Link href="/student" className="btn-gold btn me-3">Join the Team</Link>
             <Link href="/" className="btn-outline-gold btn">Back to Home</Link>
           </div>

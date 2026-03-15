@@ -12,6 +12,7 @@
   --nc-dark-bg: #12080b;
   --nc-card-bg: #231117;
   --nc-text-muted: #cabba3;
+  --nc-nav-height: 76px;
 
   /* Bootstrap overrides */
   --bs-light-rgb: 236, 236, 236;
@@ -28,6 +29,110 @@ body {
   background-color: var(--nc-dark-bg);
   color: var(--nc-white);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nc-nav-height);
+}
+
+[id] {
+  scroll-margin-top: var(--nc-nav-height);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.page-main {
+  min-height: calc(100vh - var(--nc-nav-height));
+  background:
+    radial-gradient(circle at 90% 0%, rgba(224, 186, 113, 0.07) 0%, transparent 32%),
+    radial-gradient(circle at 0% 20%, rgba(106, 18, 35, 0.16) 0%, transparent 34%),
+    var(--nc-dark-bg);
+}
+
+.page-header-section {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(224, 186, 113, 0.2);
+  padding: clamp(3.5rem, 7vw, 5rem) 0 clamp(2.75rem, 5vw, 3.5rem);
+}
+
+.page-header-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 85% 30%, rgba(224, 186, 113, 0.12), transparent 40%),
+    radial-gradient(circle at 10% 0%, rgba(106, 18, 35, 0.28), transparent 42%);
+  pointer-events: none;
+}
+
+.page-header-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.page-subtitle {
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 760px;
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
+.page-content-section {
+  padding: clamp(2.5rem, 4vw, 3.5rem) 0 clamp(4rem, 6vw, 5rem);
+}
+
+.nc-navbar {
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.22);
+}
+
+.nc-navbar .navbar-toggler {
+  padding: 0.3rem 0.45rem;
+  border-radius: 6px;
+}
+
+.nc-navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(224, 186, 113, 0.22);
+}
+
+.nc-navbar-collapse {
+  margin-top: 0.35rem;
+}
+
+@media (max-width: 991.98px) {
+  .nc-navbar-collapse {
+    margin-top: 0.65rem;
+    background: linear-gradient(160deg, rgba(50, 4, 13, 0.98), rgba(35, 17, 23, 0.97));
+    border: 1px solid rgba(224, 186, 113, 0.24);
+    border-radius: 12px;
+    padding: 0.55rem;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  }
+
+  .nc-navbar-nav {
+    align-items: stretch !important;
+    gap: 0.35rem !important;
+  }
+
+  .nc-navbar-link {
+    width: 100%;
+    border-radius: 8px !important;
+    padding: 0.65rem 0.85rem !important;
+    font-size: 0.95rem !important;
+    line-height: 1.2;
+  }
+
+  .nc-navbar-cta {
+    width: 100%;
+    margin: 0.35rem 0 0 !important;
+    border-radius: 8px !important;
+    padding: 0.7rem 0.85rem !important;
+    font-size: 0.92rem !important;
+    text-align: center;
+  }
 }
 
 .wrapper {
@@ -111,15 +216,15 @@ body {
 .hero-cta-secondary:hover {
   color: var(--nc-white);
   border-color: var(--nc-gold);
-  background-color: rgba(253, 183, 26, 0.1);
+  background-color: rgba(224, 186, 113, 0.1);
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(253, 183, 26, 0.15);
-  border: 1px solid rgba(253, 183, 26, 0.35);
+  background: rgba(224, 186, 113, 0.15);
+  border: 1px solid rgba(224, 186, 113, 0.35);
   border-radius: 50px;
   padding: 0.35rem 1rem;
   font-size: 0.8rem;
@@ -147,7 +252,7 @@ body {
 
 .hero-visual-card {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(253, 183, 26, 0.2);
+  border: 1px solid rgba(224, 186, 113, 0.25);
   border-radius: 12px;
   backdrop-filter: blur(10px);
 }
@@ -155,12 +260,12 @@ body {
 /* ── Section styles ─────────────────────────────────────────── */
 .section-dark {
   background-color: var(--nc-dark-bg);
-  padding: 5rem 0;
+  padding: clamp(3rem, 5vw, 5rem) 0;
 }
 
 .section-navy {
   background-color: var(--nc-navy-dark);
-  padding: 5rem 0;
+  padding: clamp(3rem, 5vw, 5rem) 0;
 }
 
 .section-label {
@@ -194,7 +299,7 @@ body {
 .game-card:hover {
   transform: translateY(-4px);
   border-color: var(--nc-gold);
-  box-shadow: 0 8px 30px rgba(253, 183, 26, 0.15);
+  box-shadow: 0 8px 30px rgba(224, 186, 113, 0.2);
 }
 
 .game-card-icon {
@@ -224,7 +329,7 @@ body {
 }
 
 .game-card-badge {
-  background: rgba(253, 183, 26, 0.15);
+  background: rgba(224, 186, 113, 0.15);
   color: var(--nc-gold);
   border-radius: 4px;
   font-size: 0.7rem;
@@ -296,14 +401,14 @@ body {
 }
 
 .event-item:hover {
-  border-color: rgba(253, 183, 26, 0.4);
+  border-color: rgba(224, 186, 113, 0.42);
 }
 
 .event-date-box {
   min-width: 52px;
   height: 52px;
   background: linear-gradient(135deg, var(--nc-navy), var(--nc-navy-light));
-  border: 1px solid rgba(253, 183, 26, 0.3);
+  border: 1px solid rgba(224, 186, 113, 0.35);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -408,7 +513,17 @@ body {
 
 .sponsor-badge:hover {
   color: var(--nc-gold);
-  border-color: rgba(253, 183, 26, 0.4);
+  border-color: rgba(224, 186, 113, 0.45);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nc-nav-height: 72px;
+  }
+
+  .page-header-section {
+    padding-top: 3.25rem;
+  }
 }
 
 /* ── Bootstrap dark-theme form overrides ───────────────────── */

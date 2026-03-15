@@ -4,8 +4,8 @@ import { news } from '@/lib/siteData';
 
 export default function NewsPage() {
   return (
-    <main style={{ backgroundColor: 'var(--nc-dark-bg)', minHeight: '80vh' }}>
-      <section className="section-navy">
+    <main className="page-main">
+      <section className="section-navy page-header-section">
         <Container>
           <span className="section-label">Latest</span>
           <div className="gold-divider" />
@@ -14,14 +14,14 @@ export default function NewsPage() {
             {' '}
             <span className="gold-text">Updates</span>
           </h1>
-          <p style={{ color: 'rgba(255,255,255,0.75)', maxWidth: 700, lineHeight: 1.7 }}>
+          <p className="page-subtitle">
             Follow roster announcements, event recaps, and tournament progress from the Norco College
             Esports program.
           </p>
         </Container>
       </section>
 
-      <section className="section-dark">
+      <section className="section-dark page-content-section">
         <Container>
           <div className="d-flex flex-column gap-3">
             {news.map((item) => (
@@ -38,7 +38,7 @@ export default function NewsPage() {
             ))}
           </div>
 
-          <div className="mt-5">
+          <div className="d-flex flex-wrap gap-3 mt-5">
             <Link href="/events" className="btn-outline-gold btn me-3">View Events</Link>
             <Link href="/" className="btn-outline-gold btn">Back to Home</Link>
           </div>

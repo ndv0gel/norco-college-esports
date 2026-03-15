@@ -1,25 +1,34 @@
 'use client';
 
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 
 const NavBar = () => {
   const [expanded, setExpanded] = useState(false);
+  const pathname = usePathname();
+  const isStudentRoute = pathname === '/student' || pathname.startsWith('/student/');
 
   return (
     <Navbar
+      className="nc-navbar"
       expand="lg"
+      sticky="top"
       expanded={expanded}
       onToggle={setExpanded}
       style={{
-        backgroundColor: 'var(--nc-navy-dark)',
+        backgroundColor: 'rgba(50, 4, 13, 0.92)',
+        backdropFilter: 'blur(8px)',
         borderBottom: '2px solid var(--nc-gold)',
         padding: '0.6rem 0',
+        zIndex: 1040,
       }}
     >
       <Container>
         {/* Brand / Logo */}
         <Navbar.Brand
+          as={Link}
           href="/"
           style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', textDecoration: 'none' }}
         >
@@ -59,17 +68,19 @@ const NavBar = () => {
 
         {/* Mobile toggle */}
         <Navbar.Toggle
+          className="nc-navbar-toggle"
           aria-controls="main-nav"
+          aria-label="Toggle navigation menu"
           onClick={() => setExpanded(!expanded)}
-          style={{ borderColor: 'rgba(253,183,26,0.4)' }}
+          style={{ borderColor: 'rgba(224,186,113,0.45)' }}
         >
           <span style={{ background: 'var(--nc-white)', display: 'block', width: 22, height: 2, margin: '4px 0' }} />
           <span style={{ background: 'var(--nc-white)', display: 'block', width: 22, height: 2, margin: '4px 0' }} />
           <span style={{ background: 'var(--nc-white)', display: 'block', width: 22, height: 2, margin: '4px 0' }} />
         </Navbar.Toggle>
 
-        <Navbar.Collapse id="main-nav">
-          <Nav className="ms-auto" style={{ gap: '0.25rem', alignItems: 'center' }}>
+        <Navbar.Collapse id="main-nav" className="nc-navbar-collapse">
+          <Nav className="ms-auto nc-navbar-nav" style={{ gap: '0.25rem', alignItems: 'center' }}>
             {[
               { label: 'Home', href: '/' },
               { label: 'Games', href: '/games' },
@@ -79,18 +90,30 @@ const NavBar = () => {
             ].map(({ label, href }) => (
               <Nav.Link
                 key={label}
+                as={Link}
                 href={href}
+                className="nc-navbar-link"
                 onClick={() => setExpanded(false)}
+                // Keep route context visible for easier orientation.
                 style={{
-                  color: 'rgba(255,255,255,0.8)',
+                  color: pathname === href ? 'var(--nc-gold)' : 'rgba(255,255,255,0.8)',
+                  backgroundColor: pathname === href ? 'rgba(224,186,113,0.12)' : 'transparent',
                   fontWeight: 600,
                   fontSize: '0.88rem',
                   padding: '0.4rem 0.75rem',
                   borderRadius: 4,
-                  transition: 'color 0.15s',
+                  transition: 'color 0.15s, background-color 0.15s',
                 }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--nc-gold)'; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(255,255,255,0.8)'; }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.color = 'var(--nc-gold)';
+                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'rgba(224,186,113,0.12)';
+                }}
+                onMouseLeave={(e) => {
+                  const linkColor = pathname === href ? 'var(--nc-gold)' : 'rgba(255,255,255,0.8)';
+                  const linkBackground = pathname === href ? 'rgba(224,186,113,0.12)' : 'transparent';
+                  (e.currentTarget as HTMLAnchorElement).style.color = linkColor;
+                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = linkBackground;
+                }}
               >
                 {label}
               </Nav.Link>
@@ -98,10 +121,12 @@ const NavBar = () => {
 
             {/* Register CTA */}
             <Nav.Link
+              as={Link}
               href="/student"
+              className="nc-navbar-cta"
               onClick={() => setExpanded(false)}
               style={{
-                background: 'var(--nc-gold)',
+                background: isStudentRoute ? 'var(--nc-gold-dark)' : 'var(--nc-gold)',
                 color: 'var(--nc-navy-dark)',
                 fontWeight: 700,
                 fontSize: '0.85rem',
