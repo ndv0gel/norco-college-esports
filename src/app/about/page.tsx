@@ -30,11 +30,11 @@ export default function AboutPage() {
                 {' '}
                 <span className="gold-text">Gaming</span>
               </h2>
-                <p style={{ color: 'var(--nc-text-muted)', lineHeight: 1.75 }}>
+              <p style={{ color: 'var(--nc-text-muted)', lineHeight: 1.75 }}>
                 We support students who want to compete, build friendships, and represent Norco
                 College with pride. Our program emphasizes teamwork, communication, and accountability.
               </p>
-                <p style={{ color: 'var(--nc-text-muted)', lineHeight: 1.75 }}>
+              <p style={{ color: 'var(--nc-text-muted)', lineHeight: 1.75 }}>
                 Whether you are aiming for varsity-level competition or looking for a stronger campus
                 community, there is a place for you in Knights Esports.
               </p>

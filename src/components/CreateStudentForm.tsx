@@ -17,7 +17,7 @@ import {
 } from '@/lib/validationSchemas';
 
 type CreateStudentFormProps = {
-  selectedGame?: string;
+  selectedGame: string;
 };
 
 const CreateStudentForm = ({ selectedGame }: CreateStudentFormProps) => {

@@ -8,7 +8,20 @@ const Footer = () => (
         {/* Brand column */}
         <Col md={4}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem' }}>
-            <img src="/Asset%209.png" alt="Norco College Esports logo" width={36} height={36} style={{ objectFit: 'contain', borderRadius: 8, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(213,182,122,0.35)', padding: '2px', flexShrink: 0 }} />
+            <img
+              src="/Asset%209.png"
+              alt="Norco College Esports logo"
+              width={36}
+              height={36}
+              style={{
+                objectFit: 'contain',
+                borderRadius: 8,
+                background: 'rgba(255,255,255,0.05)',
+                border: '1px solid rgba(213,182,122,0.35)',
+                padding: '2px',
+                flexShrink: 0,
+              }}
+            />
             <span style={{ color: 'var(--nc-white)', fontWeight: 800, fontSize: '0.95rem', lineHeight: 1.1 }}>
               Norco College
               <span

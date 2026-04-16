@@ -2,7 +2,7 @@ import { Container } from 'react-bootstrap';
 import CreateStudentForm from '../../components/CreateStudentForm';
 
 type StudentPageProps = {
-  searchParams?: {
+  searchParams: {
     game?: string;
   };
 };
@@ -51,7 +51,7 @@ export default function StudentRegisterPage({ searchParams }: StudentPageProps) 
             padding: '0.5rem',
           }}
         >
-          <CreateStudentForm selectedGame={selectedGame} />
+          <CreateStudentForm selectedGame={selectedGame ?? ''} />
         </div>
       </Container>
     </main>
