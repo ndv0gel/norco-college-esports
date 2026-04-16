@@ -1,245 +1,162 @@
 import Link from 'next/link';
-import { Container, Row, Col } from 'react-bootstrap';
-import HomeBottomCta from '@/components/HomeBottomCta';
-import { games, news, events } from '@/lib/siteData';
+import Image from 'next/image';
+import { Container } from 'react-bootstrap';
 
-/* ── Home page ────────────────────────────────────────────── */
+const featuredGames = [
+  {
+    game: 'Rainbow Six Siege',
+    character: 'Valkyrie',
+    role: 'Operator',
+    href: '/student?game=Rainbow%20Six%20Siege',
+    image: '/characters/rainbow6-valkyrie.png',
+    className: 'lineup-card-r6',
+  },
+  {
+    game: 'Marvel Rivals',
+    character: 'Rivals Hero',
+    role: 'Vanguard',
+    href: '/student?game=Marvel%20Rivals',
+    image: '/characters/marvel-rivals.png',
+    className: 'lineup-card-marvel',
+  },
+  {
+    game: 'League of Legends',
+    character: 'League Main',
+    role: 'Carry',
+    href: '/student?game=League%20of%20Legends',
+    image: '/characters/league-of-legends.png',
+    className: 'lineup-card-lol',
+  },
+  {
+    game: 'Valorant',
+    character: 'Agent',
+    role: 'Duelist',
+    href: '/student?game=Valorant',
+    image: '/characters/valorant.png',
+    className: 'lineup-card-valorant',
+  },
+  {
+    game: 'Call of Duty',
+    character: 'Operator',
+    role: 'Slayer',
+    href: '/student?game=Call%20of%20Duty',
+    image: '/characters/call-of-duty.png',
+    className: 'lineup-card-cod',
+  },
+];
 
 export default function Home() {
   return (
     <main className="page-main">
-
-      {/* ── HERO ─────────────────────────────────────────── */}
-      <section className="hero-section" id="home">
-        <Container style={{ position: 'relative', zIndex: 2 }}>
-          <Row className="align-items-center" style={{ minHeight: '85vh' }}>
-
-            {/* Left copy */}
-            <Col lg={7} className="py-5">
-              <div className="hero-badge mb-3">
-                Norco College Knights Program
-              </div>
-
-              <h1 className="hero-title mb-3">
-                Compete at the
-                <br />
-                <span className="gold-text">College Level.</span>
-              </h1>
-
-              <p className="hero-subtitle mb-4">
-                Join the official esports program of Norco College.
-                Train with dedicated coaches, represent the Knights in collegiate tournaments,
-                and build connections that last beyond the game.
-              </p>
-
-              <div className="d-flex flex-wrap gap-3 mb-5">
-                <Link href="/student" className="hero-cta-primary btn">
-                  Join the Team
-                </Link>
-                <Link href="/games" className="hero-cta-secondary btn btn-outline-light">Explore Games</Link>
-              </div>
-
-              {/* Stats row */}
-              <div className="d-flex gap-4 flex-wrap">
-                {[
-                  { n: '6+', l: 'Games Offered' },
-                  { n: '50+', l: 'Active Players' },
-                  { n: '3', l: 'Seasons Played' },
-                  { n: '10+', l: 'Tournaments' },
-                ].map(({ n, l }) => (
-                  <div key={l} className="hero-stat">
-                    <div className="stat-number">{n}</div>
-                    <div className="stat-label">{l}</div>
-                  </div>
-                ))}
-              </div>
-            </Col>
-
-            {/* Right visual */}
-            <Col lg={5} className="d-none d-lg-flex justify-content-end py-5">
-              <div
-                className="hero-visual-card p-4 text-center"
-                style={{ width: '100%', maxWidth: 360 }}
-              >
-                <h3 style={{ color: 'var(--nc-gold)', fontWeight: 800, marginBottom: '0.5rem' }}>
-                  Knights Esports
-                </h3>
-                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-                  Norco, CA | CCCAA Affiliated
-                </p>
-                <div
-                  style={{
-                    display: 'flex',
-                    gap: '0.75rem',
-                    justifyContent: 'center',
-                    flexWrap: 'wrap',
-                  }}
-                >
-                  {['LoL', 'Val', 'RL', 'OW2'].map((tag) => (
-                    <span
-                      key={tag}
-                      className="game-card-badge"
-                      style={{ fontSize: '0.78rem', padding: '0.3rem 0.75rem' }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </Col>
-
-          </Row>
-        </Container>
-      </section>
-
-      {/* ── PAGE NAVIGATION ───────────────────────────────── */}
-      <section className="section-dark">
+      <section className="home-shell" id="home">
         <Container>
-          <div className="mb-5">
-            <span className="section-label">Site Sections</span>
-            <div className="gold-divider" />
-            <h2 className="section-title">
-              Explore
-              {' '}
-              <span className="gold-text">By Page</span>
-            </h2>
-            <p style={{ color: 'var(--nc-text-muted)', maxWidth: 520, fontSize: '0.95rem' }}>
-              The site now uses dedicated pages for games, news, events, and program information.
-            </p>
+          <div className="hero-wireframe">
+            <div className="hero-copy">
+              <p className="hero-kicker">Norco College Esports</p>
+              <h1 className="hero-title-large">Compete. Create. Connect.</h1>
+              <p className="hero-summary">
+                Student-led competition, campus events, and game communities under one program.
+                The color system now follows the official logo tones so content is easier to read and scan.
+              </p>
+              <div className="hero-actions">
+                <Link href="/student" className="btn btn-outline-gold">Join a Team</Link>
+                <Link href="/events" className="btn btn-outline-gold">See Events</Link>
+              </div>
+            </div>
+            <div className="home-news-frame" id="news-home">
+              <div className="frame-heading">
+                <h2>News</h2>
+                <p>Latest story, tournament recap, or feature spotlight</p>
+              </div>
+              <div className="frame-screen" />
+              <div className="frame-dots" aria-label="Slide indicators">
+                <span />
+                <span />
+                <span />
+              </div>
+            </div>
           </div>
 
-          <Row className="g-3">
-            {[
-              {
-                title: 'Games',
-                href: '/games',
-                summary: 'Explore active rosters, recruiting status, and program focus by title.',
-              },
-              {
-                title: 'News',
-                href: '/news',
-                summary: 'Read tournament highlights, announcements, and weekly updates.',
-              },
-              {
-                title: 'Events',
-                href: '/events',
-                summary: 'Track upcoming events, qualifiers, and campus activity dates.',
-              },
-              {
-                title: 'About',
-                href: '/about',
-                summary: 'Learn about the mission, community, and student opportunities.',
-              },
-            ].map(({ title, href, summary }) => (
-              <Col key={title} xs={12} sm={6}>
-                <div className="game-card">
-                  <div className="game-card-body">
-                    <p className="game-card-title mb-2">{title}</p>
-                    <p className="game-card-meta mb-3" style={{ lineHeight: 1.6 }}>{summary}</p>
-                    <Link href={href} className="btn-outline-gold btn btn-sm">
-                      Open
-                      {' '}
-                      {title}
-                    </Link>
+          <section className="events-strip" id="events-home">
+            <div>
+              <p className="section-eyebrow">Events</p>
+              <h2>Campus + Tournament Calendar</h2>
+            </div>
+            <div className="events-list">
+              {[
+                'Open Arena Night - Apr 22',
+                'Valorant Tryouts - Apr 29',
+                'Smash Ladder Finals - May 04',
+              ].map((eventItem) => (
+                <p key={eventItem}>{eventItem}</p>
+              ))}
+            </div>
+          </section>
+
+          <section className="character-grid-section" aria-label="Featured game characters">
+            <div className="character-section-head">
+              <p className="section-eyebrow">Character Selection</p>
+              <h2>Meet The Team Lineup</h2>
+              <p>
+                Hover over each character to spotlight them. Click a character to open a sign-up form
+                pre-targeted for that specific game.
+              </p>
+            </div>
+
+            <div className="character-lineup-stage">
+              {featuredGames.map((item) => (
+                <Link key={item.game} href={item.href} className={`lineup-card ${item.className}`}>
+                  <Image src={item.image} alt={`${item.character} silhouette`} fill sizes="20vw" />
+                  <div className="character-card-content">
+                    <p className="character-role">{item.role}</p>
+                    <h3>{item.character}</h3>
+                    <p>{item.game}</p>
                   </div>
-                </div>
-              </Col>
-            ))}
-          </Row>
+                  <span className="character-hover-hint">Sign Up</span>
+                </Link>
+              ))}
+            </div>
+
+            <div className="lineup-quick-links">
+              {featuredGames.map((item) => (
+                <Link key={`${item.game}-quick`} href={item.href}>{item.game}</Link>
+              ))}
+            </div>
+          </section>
+
+          <section className="media-shop-row" id="shop">
+            <article className="shop-panel">
+              <p className="section-eyebrow">Shop</p>
+              <h2>Program Merch</h2>
+              <p>Jerseys, hoodies, and club drops will connect here once your store links are ready.</p>
+              <Link href="/about" className="btn btn-outline-gold">Learn More</Link>
+            </article>
+
+            <article className="photo-panel">
+              <p className="section-eyebrow">Events / Team Photos</p>
+              <h2>Gallery Reel</h2>
+              <div className="photo-strip">
+                <span />
+                <span />
+                <span />
+                <span />
+              </div>
+            </article>
+          </section>
+
+          <section className="partners-section" id="partners">
+            <div>
+              <p className="section-eyebrow">Programs / Partners</p>
+              <h2>Community and Campus Support</h2>
+            </div>
+            <div className="partner-badges">
+              {['Norco College', 'Student Life', 'RCCD', 'Esports Lab', 'Athletics', 'Campus IT'].map((partner) => (
+                <span key={partner}>{partner}</span>
+              ))}
+            </div>
+          </section>
         </Container>
       </section>
-
-      {/* ── SNAPSHOT ─────────────────────────────────────── */}
-      <section className="section-navy" id="news">
-        <Container>
-          <Row className="g-5">
-
-            <Col lg={4}>
-              <span className="section-label">Games</span>
-              <div className="gold-divider" />
-              <h2 className="section-title mb-4">
-                Program
-                {' '}
-                <span className="gold-text">Snapshot</span>
-              </h2>
-
-              <div className="d-flex flex-column gap-3">
-                {games.slice(0, 3).map((game) => (
-                  <div key={game.title} className="news-card">
-                    <div className="news-card-body">
-                      <p className="news-card-category mb-1">{game.status}</p>
-                      <p className="news-card-title mb-1">{game.title}</p>
-                      <p className="news-card-date mb-0">{game.players}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <Link href="/games" className="btn-outline-gold btn mt-4" style={{ fontSize: '0.85rem' }}>
-                View all games
-              </Link>
-            </Col>
-
-            <Col lg={4}>
-              <span className="section-label">News</span>
-              <div className="gold-divider" />
-              <h2 className="section-title mb-4">
-                Recent
-                {' '}
-                <span className="gold-text">Updates</span>
-              </h2>
-
-              <div className="d-flex flex-column gap-2">
-                {news.slice(0, 3).map((item) => (
-                  <div key={item.title} className="news-card">
-                    <div className="news-card-body">
-                      <p className="news-card-category mb-1">{item.category}</p>
-                      <p className="news-card-title mb-1">{item.title}</p>
-                      <p className="news-card-date mb-0">{item.date}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <Link href="/news" className="btn-outline-gold btn mt-4" style={{ fontSize: '0.85rem' }}>
-                View all news
-              </Link>
-            </Col>
-
-            <Col lg={4} id="events">
-              <span className="section-label">Events</span>
-              <div className="gold-divider" />
-              <h2 className="section-title mb-4">
-                Upcoming
-                {' '}
-                <span className="gold-text">Calendar</span>
-              </h2>
-
-              <div className="d-flex flex-column gap-2">
-                {events.slice(0, 3).map((item) => (
-                  <div key={item.title} className="event-item">
-                    <div className="event-date-box">
-                      <span className="month">{item.month}</span>
-                      <span className="day">{item.day}</span>
-                    </div>
-                    <div>
-                      <p className="event-title mb-0">{item.title}</p>
-                      <p className="event-meta mb-0">{item.detail}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <Link href="/events" className="btn-outline-gold btn mt-4" style={{ fontSize: '0.85rem' }}>
-                View full calendar
-              </Link>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-
-      <HomeBottomCta />
-
     </main>
   );
 }

@@ -9,7 +9,7 @@ const HomeBottomCta = () => (
         {' '}
         <span className="gold-text">Level Up?</span>
       </h2>
-      <p style={{ color: 'rgba(255,255,255,0.65)', maxWidth: 520, margin: '0 auto 2rem', fontSize: '1rem' }}>
+      <p style={{ color: 'var(--nc-text-muted)', maxWidth: 520, margin: '0 auto 2rem', fontSize: '1rem' }}>
         Register today and become part of the Norco College Esports family.
         Spots are limited. All skill levels are welcome.
       </p>

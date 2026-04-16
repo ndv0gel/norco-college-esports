@@ -8,23 +8,7 @@ const Footer = () => (
         {/* Brand column */}
         <Col md={4}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem' }}>
-            <div
-              style={{
-                width: 36,
-                height: 36,
-                background: 'var(--nc-gold)',
-                borderRadius: 6,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: 900,
-                color: 'var(--nc-navy-dark)',
-                fontSize: '0.95rem',
-                flexShrink: 0,
-              }}
-            >
-              NC
-            </div>
+            <img src="/Asset%209.png" alt="Norco College Esports logo" width={36} height={36} style={{ objectFit: 'contain', borderRadius: 8, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(213,182,122,0.35)', padding: '2px', flexShrink: 0 }} />
             <span style={{ color: 'var(--nc-white)', fontWeight: 800, fontSize: '0.95rem', lineHeight: 1.1 }}>
               Norco College
               <span
@@ -41,7 +25,7 @@ const Footer = () => (
               </span>
             </span>
           </div>
-          <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.85rem', lineHeight: 1.6, maxWidth: 280 }}>
+          <p style={{ color: 'var(--nc-text-muted)', fontSize: '0.85rem', lineHeight: 1.6, maxWidth: 280 }}>
             Compete. Connect. Level Up. — Norco College&apos;s official collegiate esports program.
           </p>
         </Col>
@@ -72,7 +56,7 @@ const Footer = () => (
               href={link.href}
               style={{
                 display: 'block',
-                color: 'rgba(255,255,255,0.6)',
+                color: 'var(--nc-text-muted)',
                 fontSize: '0.85rem',
                 marginBottom: '0.5rem',
                 textDecoration: 'none',
@@ -98,7 +82,7 @@ const Footer = () => (
             Our Programs
           </h6>
           {['League of Legends', 'Valorant', 'Rocket League', 'Overwatch 2', 'Street Fighter'].map((game) => (
-            <p key={game} style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', marginBottom: '0.4rem' }}>
+            <p key={game} style={{ color: 'var(--nc-text-muted)', fontSize: '0.85rem', marginBottom: '0.4rem' }}>
               {game}
             </p>
           ))}
@@ -118,10 +102,10 @@ const Footer = () => (
           >
             Contact
           </h6>
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', marginBottom: '0.4rem' }}>
+          <p style={{ color: 'var(--nc-text-muted)', fontSize: '0.85rem', marginBottom: '0.4rem' }}>
             2001 Third Street
           </p>
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', marginBottom: '0.4rem' }}>
+          <p style={{ color: 'var(--nc-text-muted)', fontSize: '0.85rem', marginBottom: '0.4rem' }}>
             Norco, CA 92860
           </p>
           <a
@@ -138,14 +122,14 @@ const Footer = () => (
       {/* Bottom bar */}
       <hr style={{ borderColor: 'rgba(255,255,255,0.1)', margin: '2rem 0 1rem' }} />
       <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
-        <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.78rem', margin: 0 }}>
+        <p style={{ color: 'var(--nc-text-muted)', fontSize: '0.78rem', margin: 0 }}>
           ©
           {' '}
           {new Date().getFullYear()}
           {' '}
           Norco College Esports. All rights reserved.
         </p>
-        <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.78rem', margin: 0 }}>
+        <p style={{ color: 'var(--nc-text-muted)', fontSize: '0.78rem', margin: 0 }}>
           Part of the Riverside Community College District
         </p>
       </div>

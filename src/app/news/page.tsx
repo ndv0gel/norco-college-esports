@@ -29,10 +29,10 @@ export default function NewsPage() {
                 <div className="news-card-body">
                   <p className="news-card-category mb-1">{item.category}</p>
                   <h2 className="news-card-title mb-2" style={{ fontSize: '1.1rem' }}>{item.title}</h2>
-                  <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+                  <p style={{ color: 'var(--nc-white)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
                     {item.summary}
                   </p>
-                  <p className="news-card-date mb-0">{item.date}</p>
+                  <p className="news-card-date mb-0" style={{ color: 'var(--nc-white)' }}>{item.date}</p>
                 </div>
               </article>
             ))}

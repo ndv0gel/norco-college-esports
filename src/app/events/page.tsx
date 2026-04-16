@@ -38,7 +38,7 @@ export default function EventsPage() {
           </div>
 
           <div className="d-flex flex-wrap gap-3 mt-5">
-            <Link href="/student" className="btn-gold btn me-3">Join the Team</Link>
+            <Link href="/student" className="btn-outline-gold btn me-3">Join the Team</Link>
             <Link href="/" className="btn-outline-gold btn">Back to Home</Link>
           </div>
         </Container>

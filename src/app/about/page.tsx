@@ -30,11 +30,11 @@ export default function AboutPage() {
                 {' '}
                 <span className="gold-text">Gaming</span>
               </h2>
-              <p style={{ color: 'rgba(255,255,255,0.72)', lineHeight: 1.75 }}>
+                <p style={{ color: 'var(--nc-text-muted)', lineHeight: 1.75 }}>
                 We support students who want to compete, build friendships, and represent Norco
                 College with pride. Our program emphasizes teamwork, communication, and accountability.
               </p>
-              <p style={{ color: 'rgba(255,255,255,0.72)', lineHeight: 1.75 }}>
+                <p style={{ color: 'var(--nc-text-muted)', lineHeight: 1.75 }}>
                 Whether you are aiming for varsity-level competition or looking for a stronger campus
                 community, there is a place for you in Knights Esports.
               </p>
@@ -80,7 +80,7 @@ export default function AboutPage() {
           </Row>
 
           <div className="d-flex flex-wrap gap-3 mt-5">
-            <Link href="/student" className="btn-gold btn me-3">Register Today</Link>
+            <Link href="/student" className="btn-outline-gold btn me-3">Register Today</Link>
             <Link href="/" className="btn-outline-gold btn">Back to Home</Link>
           </div>
         </Container>

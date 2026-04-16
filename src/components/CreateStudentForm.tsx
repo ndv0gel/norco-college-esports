@@ -16,7 +16,11 @@ import {
   ICreateStudentForm,
 } from '@/lib/validationSchemas';
 
-const CreateStudentForm = () => {
+type CreateStudentFormProps = {
+  selectedGame?: string;
+};
+
+const CreateStudentForm = ({ selectedGame }: CreateStudentFormProps) => {
   const formPadding = 'py-1';
   const [emailState, setEmailState] = useState<string>('');
   const {
@@ -53,6 +57,21 @@ const CreateStudentForm = () => {
     <Container>
       <Card>
         <Card.Body>
+          {selectedGame ? (
+            <Alert
+              variant="success"
+              style={{
+                backgroundColor: 'rgba(224,186,113,0.12)',
+                borderColor: 'rgba(224,186,113,0.55)',
+                color: 'var(--nc-gold-light)',
+                marginBottom: '1rem',
+              }}
+            >
+              You are signing up for:
+              {' '}
+              <strong>{selectedGame}</strong>
+            </Alert>
+          ) : null}
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Row className={formPadding}>
               <Col>

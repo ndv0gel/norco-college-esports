@@ -35,7 +35,7 @@ export default function GamesPage() {
                     <p className="game-card-meta mb-2">{game.players}</p>
                     <p
                       style={{
-                        color: 'rgba(255,255,255,0.72)',
+                        color: 'var(--nc-text-muted)',
                         fontSize: '0.86rem',
                         lineHeight: 1.6,
                         marginBottom: 0,
@@ -50,7 +50,7 @@ export default function GamesPage() {
           </Row>
 
           <div className="d-flex flex-wrap gap-3 mt-5">
-            <Link href="/student" className="btn-gold btn me-3">
+            <Link href="/student" className="btn-outline-gold btn me-3">
               Register as a Player
             </Link>
             <Link href="/" className="btn-outline-gold btn">Back to Home</Link>
