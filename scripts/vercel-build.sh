@@ -76,4 +76,7 @@ else
 fi
 
 echo "Building Next.js app..."
+# Build from a clean output directory to avoid intermittent .next manifest write races.
+rm -rf .next
+mkdir -p .next/static
 npx next build
